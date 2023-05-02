@@ -1,0 +1,22 @@
+{
+  "name": "prisma-bug",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "410": "npm i @prisma/client@4.10.0 prisma@4.10.0",
+    "411": "npm i @prisma/client@4.11.0 prisma@4.11.0",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node index.js",
+    "db:reset": "prisma db push --force-reset",
+    "db:seed": "node seed.js",
+    "repro": "npm i && docker-compose up -d && echo \"wait for mssql to start a minute :( ....\" && sleep 5 && npm run db:reset && npm run db:seed && echo \"use prisma and @prisma/client 4.10.0\" && npm run --silent 410 && node index.js && echo \"use prisma and @prisma/client 4.11.0\" && npm run --silent 411 && node index.js"
+  },
+  "dependencies": {
+    "@prisma/client": "^4.11.0",
+    "prisma": "^4.11.0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
