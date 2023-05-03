@@ -20,11 +20,11 @@ const queryEvent = (e) => {
 prismaClient.$on('query', queryEvent)
 
 async function main() {
-  const searchString = ["Hello World", "My First Post"];
+  const arrayOfStrings = ["Hello World", "My First Post"];
 
   const posts = await prismaClient.$queryRaw`
     SELECT * FROM Post
-    WHERE title IN (${Prisma.join(searchString)})
+    WHERE title IN (${Prisma.join(arrayOfStrings)})
   `;
 
   console.log("Posts with specified titles:", posts);
