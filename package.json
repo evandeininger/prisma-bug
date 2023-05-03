@@ -4,19 +4,20 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "410": "echo \"use prisma and @prisma/client 4.10.0\" && npm i @prisma/client@4.10.0 prisma@4.10.0 &> '/dev/null'",
-    "411": "echo \"use prisma and @prisma/client 4.11.0\" && npm i @prisma/client@4.11.0 prisma@4.11.0 &> '/dev/null'",
+    "410": "echo \"installing prisma and @prisma/client 4.10.0...\" && npm i @prisma/client@4.10.0 prisma@4.10.0 &> '/dev/null'",
+    "411": "echo \"installing prisma and @prisma/client 4.11.0...\" && npm i @prisma/client@4.11.0 prisma@4.11.0 &> '/dev/null'",
+    "413": "echo \"installing prisma and @prisma/client 4.13.0...\" && npm i @prisma/client@4.13.0 prisma@4.13.0 &> '/dev/null'",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "node index.js",
     "db:reset": "prisma db push --force-reset",
     "db:seed": "node seed.js",
     "db:start": "docker-compose up -d && echo \"wait for mssql to start a minute :( ....\" && sleep 8",
-    "repro": "npm i && run-s db:start db:reset db:seed 410 dev 411 dev"
+    "repro": "npm i && run-s db:start db:reset db:seed 410 dev 411 dev 413 dev"
   },
   "dependencies": {
-    "@prisma/client": "^4.11.0",
+    "@prisma/client": "^4.13.0",
     "npm-run-all": "^4.1.5",
-    "prisma": "^4.11.0"
+    "prisma": "^4.13.0"
   },
   "keywords": [],
   "author": "",
